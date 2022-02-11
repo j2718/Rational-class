@@ -44,4 +44,40 @@ public class Rational{
   public String toString() {
     return numerator+" / "+denominator;
   }
+  public Rational add(Rational other) {
+    int newNum;
+    int newDen;
+    
+    
+    newNum=numerator*other.getDenominator()+other.getNumerator()*denominator;
+    
+    newDen=denominator*other.getDenominator();
+    
+    Rational frac3=new Rational(newNum, newDen);
+    return frac3.getRational();
+  }
+    
+  public Rational subtract(Rational other) {
+    int newnumerator=numerator*other.getDenominator()-other.getNumerator()*denominator;
+    int newdenominator=denominator*other.getDenominator();
+    
+    
+    Rational frac3=new Rational(newnumerator, newdenominator);
+    return frac3.getRational();
+  }
+    
+  public Rational multiply(Rational other) {  
+    int newNumerator=numerator*other.getNumerator();
+    int newDenominator=denominator*other.getDenominator();
+    
+    Rational frac3=new Rational(newNumerator, newDenominator);
+    return frac3.getRational(); 
+    
+  }
+  public Rational divide(Rational other){
+    Rational reciprocal=new Rational(other.getDenominator(), other.getNumerator());
+    return multiply(reciprocal);
+    
+
+  }
 }
